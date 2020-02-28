@@ -1,3 +1,4 @@
+window.onload = function () {
 let tabelaContas = document.querySelector('#contas');
 tabelaContas.addEventListener('click', (evento) => {
     let elementoClicado = evento.target;
@@ -16,3 +17,4 @@ tabelaContas.addEventListener('click', (evento) => {
     }
 
 });
+}

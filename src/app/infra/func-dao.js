@@ -53,12 +53,10 @@ atualiza(contas) {
             valor = ?
             WHERE id = ?
         `,
-        [
-            contas.nome,
+        [  contas.nome,
             contas.dataRecebimento,
             contas.valor,
-            contas.id
-        ],
+            contas.id],
         erro => {
             if (erro) {
                 return reject('Não foi possível atualizar as contas!');
@@ -89,7 +87,25 @@ remove(id) {
     });
 }
 
+buscaPorId(id) {
 
+    return new Promise((resolve, reject) => {
+        this._db.get(
+            `
+                SELECT *
+                FROM contas
+                WHERE id = ?
+            `,
+            [id],
+            (erro, contas) => {
+                if (erro) {
+                    return reject('Não foi possível encontrar a conta!');
+                }
+                return resolve(contas);
+            }
+        );
+    });
+}
 }
 
 

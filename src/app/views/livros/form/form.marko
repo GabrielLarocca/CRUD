@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edição de Contas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+.form{
+    position:absolute;
+    top:80px;
+    left:40%;
+    width:20%;
+    height: 500px;
+}
+.form-group {
+        text-align: center;
+		border-radius: 2px;
+		box-shadow: none;
+		border-color: #dddddd;
+	}
+</style>
+ <div class="col-sm-6">
+		<h2>Edição de <b>Contas</b></h2>
+</div>
+<div class="form">
+<form action="/contas" method="post">
+
+ <div if(data.contas.id)>
+  <input type="hidden" name="_method" value="PUT">	
+  <input type="hidden" id="id" name="id" value="${data.contas.id}" />
+ </div>
+
+ <div class="form-group">
+    <label for="nome">Nome:</label>
+     <input type="text" id="nome" name="nome" value="${data.contas.nome}" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>data de recebimento</label>
+	<input type="text" id="dataRecebimento" name="dataRecebimento" value="${data.contas.dataRecebimento}" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="nome">Valor</label>
+    <input type="text" class="form-control" id="valor" name="valor" value="${data.contas.valor}">
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+</div>
+</html>
